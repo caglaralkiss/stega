@@ -1,7 +1,7 @@
 {
     "name": "stega",
     "version": "1.0.0",
-    "description": "Hide messages in PNG images",
+    "description": "Hide data inside another data",
     "main": "/lib/index.js",
     "types": "/lib/index.d.ts",
     "scripts": {
