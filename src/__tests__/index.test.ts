@@ -37,7 +37,6 @@ describe('Stega', () => {
 			0b00000000, 0b00000001, 0b00000001,
 		])
 
-
 		const originalBuff = Buffer.from([0b01100101, 0b00000101])
 
 		expect(extract(stegoBuff)).toEqual(originalBuff)
