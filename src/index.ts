@@ -11,7 +11,11 @@ export function inject(source: Buffer, target: Buffer): Buffer {
 	const targetByteLength = Buffer.byteLength(target)
 
 	if (srcByteLength * 9 > targetByteLength) {
-		throw new Error(`Target size length must be greater or equal then ${srcByteLength * 9}`)
+		throw new Error(
+			`Target size length must be greater or equal then ${
+				srcByteLength * 9
+			}`
+		)
 	}
 
 	let index = 0
@@ -20,15 +24,15 @@ export function inject(source: Buffer, target: Buffer): Buffer {
 		for (let j = 7; j >= 0; j--) {
 			const lsb = (source[i] >> j) & 0x01
 
-			target[index] = target[index] & 0xFE | lsb
+			target[index] = (target[index] & 0xfe) | lsb
 			++index
 		}
 
 		if (i < source.length - 1) {
-			target[index] = target[index] & 0xFE | 0
+			target[index] = (target[index] & 0xfe) | 0
 			++index
 		} else {
-			target[index] = target[index] & 0xFE | 1
+			target[index] = (target[index] & 0xfe) | 1
 		}
 	}
 
@@ -70,9 +74,8 @@ export function extract(stego: Buffer): Buffer {
 	}
 
 	const bytes = lsbArr
-					.map(lsb => lsb.reduce((acc, curr) => acc + curr, 0))
-					.flat()
+		.map((lsb) => lsb.reduce((acc, curr) => acc + curr, 0))
+		.flat()
 
 	return Buffer.from(bytes)
 }
-
