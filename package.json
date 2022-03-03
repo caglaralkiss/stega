@@ -1,0 +1,45 @@
+{
+    "name": "stega",
+    "version": "1.0.0",
+    "description": "Hide messages in PNG images",
+    "main": "/lib/index.js",
+    "types": "/lib/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest --config jestconfig.json",
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+        "lint": "eslint --ignore-path .gitignore --ext .js,.ts .",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/caglaralkiss/stega.git"
+    },
+    "keywords": [
+        "steganography"
+    ],
+    "author": "Caglar Alkis",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/caglaralkiss/stega/issues"
+    },
+    "homepage": "https://github.com/caglaralkiss/stega#readme",
+    "devDependencies": {
+        "@types/jest": "^27.4.1",
+        "@typescript-eslint/eslint-plugin": "^5.13.0",
+        "@typescript-eslint/parser": "^5.13.0",
+        "eslint": "^8.10.0",
+        "eslint-config-prettier": "^8.5.0",
+        "jest": "^27.5.1",
+        "prettier": "^2.5.1",
+        "ts-jest": "^27.1.3",
+        "typescript": "^4.6.2"
+    },
+    "files": [
+        "lib/**/*"
+    ]
+}
