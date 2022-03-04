@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-	"target": "es2016",
+        "target": "es2016",
         "module": "commonjs",
         "declaration": true,
         "outDir": "./lib",
@@ -8,7 +8,7 @@
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "noImplicitAny": true,
-        "skipLibCheck": true 
+        "skipLibCheck": true
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/__tests__/*"]
